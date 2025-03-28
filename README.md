@@ -16,3 +16,5 @@ I finally switched to webdriver, It would fix the issue of letting the website l
 The problem was, even thoough its headless, it still takes time. This approach worked, I still had issues with rate limits but it was not as bad (prbl because the website owner had accounted for this issue). 
 This is the script which this repo is about.
 ### 5. Using websocket
+I had to find out how the website was requesting for the users information. If i can replicate it, i can get the information directly without needing to load the website. After further investigation i realized, the site was communicating to a server via websocket and the information was handded after handshake. This was the first time i was introduced to websocket and how handshakes worked in this site.
+the handshake
