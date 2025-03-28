@@ -17,11 +17,13 @@ The problem was, even thoough its headless, it still takes time. This approach w
 This is the script which this repo is about.
 ### 5. Using websocket
 I had to find out how the website was requesting for the users information. If i can replicate it, i can get the information directly without needing to load the website. After further investigation i realized, the site was communicating to a server via websocket and the information was handded after handshake. This was the first time i was introduced to websocket and how handshakes worked in this site. I had to get a session id and token which i got from several requests. Then a wss connection is stablished and the following handshake is performed.<br />
-**The handshake**\
-↑2probe\
-↓3probe\
-↑5\
+**The handshake**
+```
+↑2probe
+↓3probe
+↑5
+```
 handshake complete.\
-Then it follows by ↓42[json....]. 
-I recreated this sequence with python but I did not recieve the json with information. Rather it gave me ping ↓2 and I had to responce with a pong ↑3. I did more investivation and turns out for some usernames the site sends ↑42[json....] with username, date, token. I recreated this and right after i sent this message the session endded without  me getting the informaton. I leant a lot of new things by switching into this approach but I couldnt accomplish my goal and i had to return to 4. and be satisfied.
+Then it follows by `↓42[json....]`. 
+I recreated this sequence with python but I did not recieve the json with information. Rather it gave me ping `↓2` and I had to responce with a pong `↑3`. I did more investivation and turns out for some usernames the site sends `↑42[json....]` with username, date, token. I recreated this and right after i sent this message the session endded without  me getting the informaton. I leant a lot of new things by switching into this approach but I couldnt accomplish my goal and i had to return to 4. and be satisfied.
 
